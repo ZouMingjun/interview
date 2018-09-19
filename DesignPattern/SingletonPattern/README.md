@@ -45,7 +45,7 @@ class singleton
 protected:
     singleton()
     {
-        pthread_mutex_init(&mutex);
+        pthread_mutex_init(&mutex);//构造函数，private类型也可以
     }
 private:
     static singleton* p;
@@ -53,9 +53,9 @@ public:
     static pthread_mutex_t mutex;
     static singleton* initance();
 };
-pthread_mutex_t singleton::mutex;
+pthread_mutex_t singleton::mutex;//静态成员变量只能在类外初始化
 singleton* singleton::p = NULL;
-singleton* singleton::initance()
+singleton* singleton::initance()//静态成员函数类内定义也可以
 {
     if (p == NULL)
     {
