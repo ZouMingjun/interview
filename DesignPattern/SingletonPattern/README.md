@@ -32,7 +32,6 @@ public:
 		return instance;
 	}
 };
-```
 //2、加锁的懒汉模式
 class singleton
 {
@@ -47,7 +46,6 @@ public:
     static pthread_mutex_t mutex;
     static singleton* initance();
 };
-
 pthread_mutex_t singleton::mutex;
 singleton* singleton::p = NULL;
 singleton* singleton::initance()
@@ -77,3 +75,4 @@ singleton* singleton::initance()
 {
     return p;
 }
+```
